@@ -4,7 +4,7 @@
         "type": "function",
         "z": "d2cbb67c6acd67a0",
         "name": "function 6",
-        "func": "// Kiểm tra xem payload.vs.fx[0] có tồn tại và khác null\nif (msg.payload && msg.payload.vs && msg.payload.vs.fx && msg.payload.vs.fx[0] !== null) {\n    // Gán giá trị của payload.vs.fx[0] vào payload.ActiveIdentifier\n    msg.payload = { ActiveIdentifier: msg.payload.vs.fx[0] };\n} else {\n    // Nếu payload.vs.fx[0] không tồn tại hoặc là null, gán payload.ActiveIdentifier = null\n    msg.payload = { ActiveIdentifier: null };\n}\n\n// Trả về kết quả\nreturn msg;",
+        "func": "\nif (msg.payload && msg.payload.vs && msg.payload.vs.fx && msg.payload.vs.fx[0] !== null) {\n\n    msg.payload = { ActiveIdentifier: msg.payload.vs.fx[0] };\n} else {\n   \n    msg.payload = { ActiveIdentifier: null };\n}\n\n\nreturn msg;",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
