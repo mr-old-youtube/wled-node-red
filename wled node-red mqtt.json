@@ -1,30 +1,5 @@
 [
     {
-        "id": "79f39bbd06e49a6f",
-        "type": "inject",
-        "z": "084d30036f317d17",
-        "name": "",
-        "props": [
-            {
-                "p": "payload.seg[0].fx",
-                "v": "7",
-                "vt": "num"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "x": 270,
-        "y": 340,
-        "wires": [
-            [
-                "045d878363bbe388"
-            ]
-        ]
-    },
-    {
         "id": "fe1cd69dd1c8b405",
         "type": "group",
         "z": "084d30036f317d17",
@@ -193,7 +168,7 @@
         "z": "084d30036f317d17",
         "g": "fe1cd69dd1c8b405",
         "name": "function 8",
-        "func": "\nvar activeIdentifier = msg.payload.ActiveIdentifier;\n\nmsg.payload.seg = msg.payload.seg || [];\n\n\nmsg.payload.seg[0] = {\n    fx: activeIdentifier\n};\n\n\nif (msg.payload.Active === 0) {\n    \n    msg.payload.seg = msg.payload.seg || [];\n    msg.payload.seg[0] = {\n        fx: 0\n    };\n} else if (msg.payload.Active === 1) {\n       \n        msg.payload.seg = msg.payload.seg || [];\n        msg.payload.seg[0] = {\n            fx: 1\n        };\n\n    }\n\n\ndelete msg.payload.Active;\ndelete msg.payload.ActiveIdentifier;\n\n\nreturn msg;",
+        "func": "\nvar activeIdentifier = msg.payload.ActiveIdentifier;\n\nmsg.payload.seg = msg.payload.seg || [];\n\n\nmsg.payload.seg[0] = {\n    fx: activeIdentifier\n};\n\n\nif (msg.payload.Active === 0) {\n    \n    msg.payload.seg = msg.payload.seg || [];\n    msg.payload.seg[0] = {\n        fx: 0\n    };\n\n    }\n\n\ndelete msg.payload.Active;\ndelete msg.payload.ActiveIdentifier;\n\n\nreturn msg;",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
@@ -215,7 +190,7 @@
         "g": "fe1cd69dd1c8b405",
         "isParent": false,
         "hostType": "0",
-        "bridge": "3cca9f9d835357a8",
+        "bridge": "",
         "accessoryId": "",
         "parentService": "7ca9db4303b7a129",
         "name": "Effect",
@@ -772,30 +747,6 @@
         ]
     },
     {
-        "id": "3cca9f9d835357a8",
-        "type": "homekit-bridge",
-        "bridgeName": "Wled livingroom",
-        "pinCode": "608-55-740",
-        "port": "",
-        "advertiser": "bonjour-hap",
-        "allowInsecureRequest": false,
-        "manufacturer": "NRCHKB",
-        "model": "1.5.0",
-        "serialNo": "Default Serial Number",
-        "firmwareRev": "1.5.0",
-        "hardwareRev": "1.5.0",
-        "softwareRev": "1.5.0",
-        "customMdnsConfig": false,
-        "mdnsMulticast": true,
-        "mdnsInterface": "",
-        "mdnsPort": "",
-        "mdnsIp": "",
-        "mdnsTtl": "",
-        "mdnsLoopback": true,
-        "mdnsReuseAddr": true,
-        "allowMessagePassthrough": true
-    },
-    {
         "id": "a522847aea0b7d25",
         "type": "group",
         "z": "084d30036f317d17",
@@ -1107,7 +1058,7 @@
         "g": "a522847aea0b7d25",
         "isParent": true,
         "hostType": "0",
-        "bridge": "3cca9f9d835357a8",
+        "bridge": "e6cfb50ee777ee4b",
         "accessoryId": "",
         "parentService": "",
         "name": "Light",
@@ -1180,5 +1131,29 @@
         "willMsg": {},
         "userProps": "",
         "sessionExpiry": ""
+    },
+    {
+        "id": "e6cfb50ee777ee4b",
+        "type": "homekit-bridge",
+        "bridgeName": "wled tv",
+        "pinCode": "037-67-531",
+        "port": "",
+        "advertiser": "bonjour-hap",
+        "allowInsecureRequest": false,
+        "manufacturer": "NRCHKB",
+        "model": "1.5.0",
+        "serialNo": "Default Serial Number",
+        "firmwareRev": "1.5.0",
+        "hardwareRev": "1.5.0",
+        "softwareRev": "1.5.0",
+        "customMdnsConfig": false,
+        "mdnsMulticast": true,
+        "mdnsInterface": "",
+        "mdnsPort": "",
+        "mdnsIp": "",
+        "mdnsTtl": "",
+        "mdnsLoopback": true,
+        "mdnsReuseAddr": true,
+        "allowMessagePassthrough": true
     }
 ]
